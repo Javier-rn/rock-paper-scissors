@@ -55,7 +55,10 @@ function game() {
 
         const result = playRound(playerChoice, computerChoice);
 
-        if (result.includes('win')) {
+        if (result === undefined) {
+            console.log('Please enter a valid choice');
+            continue;
+        } else if (result.includes('win')) {
             playerScore++;
             console.log('You win this round');
             console.log(
