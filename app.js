@@ -42,3 +42,41 @@ function playRound(playerSelection, computerSelection) {
         return "It's a tie!";
     }
 }
+
+function game() {
+    let gameActive = true;
+
+    let playerScore = 0;
+    let computerScore = 0;
+
+    while (gameActive) {
+        const playerChoice = prompt('Pick your choice! ');
+        const computerChoice = computerPlay();
+
+        const result = playRound(playerChoice, computerChoice);
+
+        if (result.includes('win')) {
+            playerScore++;
+            console.log('You win this round');
+            console.log(
+                `Your score: ${playerScore}. Computer score: ${computerScore}`
+            );
+        } else if (result.includes('lose')) {
+            computerScore++;
+            console.log('You lose this round...');
+            console.log(
+                `Your score: ${playerScore}. Computer score: ${computerScore}`
+            );
+        } else {
+            console.log("It's a tie");
+        }
+
+        if (playerScore >= 5) {
+            console.log('PLAYER WINS!!!!');
+            gameActive = false;
+        } else if (computerScore >= 5) {
+            console.log('COMPUTER WINS... :(');
+            gameActive = false;
+        }
+    }
+}
