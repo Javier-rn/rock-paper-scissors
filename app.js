@@ -3,6 +3,8 @@ const userChoiceOutput = document.querySelector('.user-choice');
 const computerChoiceOutput = document.querySelector('.computer-choice');
 const userScoreOutput = document.querySelector('.user-score');
 const computerScoreOutput = document.querySelector('.computer-score');
+const outputMessage = document.querySelector('.output-message');
+const reloadBtn = document.getElementById('reload-btn');
 
 let userScore = 0;
 let computerScore = 0;
@@ -18,19 +20,25 @@ btns.forEach((button) => {
         if (result === 'win') {
             userScore += 1;
             userScoreOutput.textContent = userScore;
+            outputMessage.textContent = 'User wins this round!';
         } else if (result === 'lose') {
             computerScore += 1;
             computerScoreOutput.textContent = computerScore;
+            outputMessage.textContent = 'Computer wins this round!';
+        } else {
+            outputMessage.textContent = "It's a tie!";
         }
 
         if (checkUserWin()) {
             btns.forEach((button) => {
+                outputMessage.textContent = 'USER WINS';
                 button.disabled = true;
             });
         }
 
         if (checkComputerWin()) {
             btns.forEach((button) => {
+                outputMessage.textContent = 'COMPUTER WINS';
                 button.disabled = true;
             });
         }
@@ -97,6 +105,16 @@ function playRound(playerSelection, computerSelection) {
         return 'tie';
     }
 }
+
+reloadBtn.addEventListener('click', function () {
+    userScore = 0;
+    computerScore = 0;
+    userScoreOutput.textContent = userScore;
+    computerScoreOutput.textContent = computerScore;
+    outputMessage.textContent = 'Make a choice!';
+    userChoiceOutput.textContent = '';
+    computerChoiceOutput.textContent = '';
+});
 
 // function game() {
 //     let gameActive = true;

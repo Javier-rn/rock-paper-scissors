@@ -5,6 +5,16 @@ body {
     align-items: center;
 }
 
+#reload-btn {
+    font-size: 20px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 10px;
+    color: rgb(100, 142, 175);
+    cursor: pointer;
+}
+
 .container {
     display: flex;
     align-items: center;
@@ -13,6 +23,7 @@ body {
     padding: 50px;
     background-color: rgb(229, 237, 245);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: relative;
 }
 
 .btns-container {
