@@ -14,32 +14,32 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = computerSelection.toLowerCase();
 
     if (playerSelection === 'rock' && computerSelection === 'rock') {
-        return "It's a tie!";
+        return 'tie';
     } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        return 'You lose!';
+        return 'lose';
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        return 'You win!';
+        return 'win';
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return 'You win!';
+        return 'win';
     } else if (playerSelection === 'paper' && computerSelection === 'paper') {
-        return "It's a tie!";
+        return 'tie!';
     } else if (
         playerSelection === 'paper' &&
         computerSelection === 'scissors'
     ) {
-        return 'You lose!';
+        return 'lose';
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        return 'You lose!';
+        return 'lose';
     } else if (
         playerSelection === 'scissors' &&
         computerSelection === 'paper'
     ) {
-        return 'You win!';
+        return 'win';
     } else if (
         playerSelection === 'scissors' &&
         computerSelection === 'scissors'
     ) {
-        return "It's a tie!";
+        return 'tie';
     }
 }
 
