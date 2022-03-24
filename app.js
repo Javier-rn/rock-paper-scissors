@@ -114,4 +114,8 @@ reloadBtn.addEventListener('click', function () {
     outputMessage.textContent = 'Make a choice!';
     userChoiceOutput.textContent = '';
     computerChoiceOutput.textContent = '';
+
+    btns.forEach((button) => {
+        button.disabled = false;
+    });
 });
