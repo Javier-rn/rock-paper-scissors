@@ -1,3 +1,58 @@
+const btns = document.querySelectorAll('button');
+const userChoiceOutput = document.querySelector('.user-choice');
+const computerChoiceOutput = document.querySelector('.computer-choice');
+const userScoreOutput = document.querySelector('.user-score');
+const computerScoreOutput = document.querySelector('.computer-score');
+
+let userScore = 0;
+let computerScore = 0;
+
+btns.forEach((button) => {
+    button.addEventListener('click', function (e) {
+        const computerChoice = computerPlay();
+        userChoiceOutput.textContent = e.target.id;
+        computerChoiceOutput.textContent = computerChoice;
+
+        const result = playRound(e.target.id, computerChoice);
+
+        if (result === 'win') {
+            userScore += 1;
+            userScoreOutput.textContent = userScore;
+        } else if (result === 'lose') {
+            computerScore += 1;
+            computerScoreOutput.textContent = computerScore;
+        }
+
+        if (checkUserWin()) {
+            btns.forEach((button) => {
+                button.disabled = true;
+            });
+        }
+
+        if (checkComputerWin()) {
+            btns.forEach((button) => {
+                button.disabled = true;
+            });
+        }
+    });
+});
+
+function checkUserWin() {
+    if (userScore === 5) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function checkComputerWin() {
+    if (computerScore === 5) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function computerPlay() {
     const rand = Math.floor(Math.random() * 3) + 1;
     if (rand === 3) {
