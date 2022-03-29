@@ -11,6 +11,7 @@ let computerScore = 0;
 
 btns.forEach((button) => {
     button.addEventListener('click', function (e) {
+        e.stopPropagation();
         const computerChoice = computerPlay();
         userChoiceOutput.textContent = e.target.id;
         computerChoiceOutput.textContent = computerChoice;
